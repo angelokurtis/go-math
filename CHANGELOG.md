@@ -8,4 +8,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Initial version of math module.
 - A changelog based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
