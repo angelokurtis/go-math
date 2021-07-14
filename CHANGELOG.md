@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.0.6] - 2021-07-14
+
 ## [v0.0.5] - 2021-07-14
 
 ### Added
@@ -14,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   Initial version of math module.
 -   A changelog based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-[Unreleased]: https://github.com/angelokurtis/go-math/compare/v0.0.5...HEAD
+[Unreleased]: https://github.com/angelokurtis/go-math/compare/v0.0.6...HEAD
+
+[v0.0.6]: https://github.com/angelokurtis/go-math/compare/v0.0.5...v0.0.6
 
 [v0.0.5]: https://github.com/angelokurtis/go-math/compare/863bddb7f0c6f3607f68461af0a2b800db0e50ad...v0.0.5
