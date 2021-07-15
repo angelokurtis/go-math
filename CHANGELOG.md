@@ -7,9 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.0.7] - 2021-07-15
+
 ### Added
 
-- CLI to deal with all operations.
+-   CLI to deal with all operations.
 
 ## [v0.0.7] - 2021-07-14
 
@@ -23,6 +25,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   A changelog based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 [Unreleased]: https://github.com/angelokurtis/go-math/compare/v0.0.7...HEAD
+
+[v0.0.7]: https://github.com/angelokurtis/go-math/compare/v0.0.7...v0.0.7
 
 [v0.0.7]: https://github.com/angelokurtis/go-math/compare/v0.0.6...v0.0.7
 
