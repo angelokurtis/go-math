@@ -29,14 +29,23 @@ jobs:
 
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
 
+      - name: Get Changelog Entry
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v2
+        with:
+          validation_depth: 10
+          version: ${{ env.RELEASE_VERSION }}
+          path: ./CHANGELOG.md
+
       - name: Create Release
-        uses: thomaseizinger/create-release@1.0.0
+        uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          target_commitish: ${{ github.event.pull_request.merge_commit_sha }}
+          commitish: ${{ github.event.pull_request.merge_commit_sha }}
           tag_name: ${{ env.RELEASE_VERSION }}
-          name: ${{ env.RELEASE_VERSION }}
+          release_name: Release ${{ steps.changelog_reader.outputs.version }}
+          body: ${{ steps.changelog_reader.outputs.changes }}
           draft: false
           prerelease: false
 
