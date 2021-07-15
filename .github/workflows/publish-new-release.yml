@@ -29,6 +29,9 @@ jobs:
 
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
 
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Get Changelog Entry
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2
