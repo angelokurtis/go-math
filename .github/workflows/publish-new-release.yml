@@ -47,7 +47,7 @@ jobs:
         with:
           commitish: ${{ github.event.pull_request.merge_commit_sha }}
           tag_name: ${{ env.RELEASE_VERSION }}
-          release_name: Release ${{ steps.changelog_reader.outputs.version }}
+          release_name: ${{ steps.changelog_reader.outputs.version }}
           body: ${{ steps.changelog_reader.outputs.changes }}
           draft: false
           prerelease: false
