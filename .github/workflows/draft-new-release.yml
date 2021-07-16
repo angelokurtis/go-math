@@ -2,8 +2,8 @@ name: "Draft new release"
 
 on:
   push:
-    tags:
-      - 'release/v*'
+    branches:
+      - "releases/**"
 
 jobs:
   draft-new-release:
