@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v0.0.21] - 2021-07-19
 
+## [v0.0.21] - 2021-07-19
+
 ## [v0.0.20] - 2021-07-19
 
 ## [v0.0.19] - 2021-07-19
@@ -44,6 +46,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   A changelog based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 [Unreleased]: https://github.com/angelokurtis/go-math/compare/v0.0.21...HEAD
+
+[v0.0.21]: https://github.com/angelokurtis/go-math/compare/v0.0.21...v0.0.21
 
 [v0.0.21]: https://github.com/angelokurtis/go-math/compare/v0.0.20...v0.0.21
 
