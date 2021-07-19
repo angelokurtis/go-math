@@ -12,6 +12,17 @@ jobs:
       - name: Debug
         uses: hmarr/debug-action@v2
 
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: |
+            kurtis/go-math
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
 
@@ -30,7 +41,8 @@ jobs:
         with:
           push: true
           platforms: linux/amd64,linux/arm64,linux/s390x
-          tags: kurtis/go-math:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
