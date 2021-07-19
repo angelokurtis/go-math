@@ -14,7 +14,7 @@ COPY cmd/ cmd/
 COPY go_math.go go_math.go
 
 # Build
-RUN go build -a -o math ./cmd/app
+RUN go build -a -o math ./cmd/math
 
 # Use distroless as minimal base image to package the math binary
 # Refer to https://github.com/GoogleContainerTools/distroless for more details
