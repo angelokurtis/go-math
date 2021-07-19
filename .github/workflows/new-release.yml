@@ -1,14 +1,14 @@
-name: "Draft new release"
+name: "New Release"
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: 'The version you want to release.'
+        description: "The version you want to release."
         required: true
 
 jobs:
-  draft-new-release:
+  new-release:
     name: "Draft a new release"
     runs-on: ubuntu-latest
     steps:

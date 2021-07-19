@@ -1,4 +1,4 @@
-name: "Publish new release"
+name: "Publish Release"
 
 on:
   pull_request:
@@ -8,8 +8,8 @@ on:
       - closed
 
 jobs:
-  release:
-    name: Publish new release
+  publish-release:
+    name: "Publish a new release"
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true # only merged pull requests must trigger this job
     steps:
