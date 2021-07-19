@@ -1,21 +1,15 @@
 name: "Publish Docker"
 
 on:
-  pull_request:
-    branches:
-      - main
-    types:
-      - closed
+  push:
+    tags:
+      - v*
 
 jobs:
   publish-docker:
     name: "Publish Docker image"
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true # only merged pull requests must trigger this job
     steps:
-      - name: Debug
-        uses: hmarr/debug-action@v2
-
       - name: Docker meta
         id: meta
         uses: docker/metadata-action@v3
