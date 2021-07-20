@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true # only merged pull requests must trigger this job
     steps:
+      # Extract version
       - name: Extract version from branch name (for release branches)
         if: startsWith(github.event.pull_request.head.ref, 'release/')
         run: |
@@ -29,11 +30,35 @@ jobs:
 
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
 
+      # Build and push Docker image
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: |
+            kurtis/go-math
+          tags: |
+            type=semver,pattern={{version}},value=${{ env.RELEASE_VERSION }}
+            type=semver,pattern={{major}}.{{minor}},value=${{ env.RELEASE_VERSION }}
+            type=semver,pattern={{major}},value=${{ env.RELEASE_VERSION }}
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      # Create Release
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Debug
-        uses: hmarr/debug-action@v2
 
       - name: Get Changelog Entry
         id: changelog_reader
@@ -55,6 +80,7 @@ jobs:
           draft: false
           prerelease: false
 
+      # Merge main into develop
       - name: Merge main into develop branch
         uses: thomaseizinger/create-pull-request@1.0.0
         env:
